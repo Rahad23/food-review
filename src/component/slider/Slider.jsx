@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import img1 from '../../img/curosel/c1.jpg';
 import img2 from '../../img/curosel/c2.jpg';
 import img3 from '../../img/curosel/c3.jpg';
@@ -14,7 +15,9 @@ const Slider = () => {
               <h1 className='text-[#ab1efd] text-6xl mb-2'>KRUTON FOOD</h1>
               <h1 className='text-[#f8f8f8] text-5xl font-semibold'>Food order wizard with online payment.</h1>
               <button className="btn btn-warning mt-5 mr-3 py-2 px-8 bg-[#fc834b] border-none rounded-2xl text-white hover:bg-[#78bf4d]">Order now</button>
-              <button className="btn btn-outline border-[#78bf4d] text-white py-2 px-8 hover:bg-[#78bf4d] rounded-2xl hover:border-[#78bf4d]">food-category</button>
+             <Link to={'/allFood'}>
+             <button className="btn btn-outline border-[#78bf4d] text-white py-2 px-8 hover:bg-[#78bf4d] rounded-2xl hover:border-[#78bf4d]">food-category</button>
+             </Link>
             </div>
           </div>
           <div className='set-overlay'>

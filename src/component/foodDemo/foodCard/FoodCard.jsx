@@ -1,6 +1,8 @@
 import React from 'react';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
+import 'react-photo-view/dist/react-photo-view.css';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 const FoodCard = ({food}) => {
     const {foodURL,foodNamed,foodDescription,foodPrice,_id}=food;
@@ -9,7 +11,11 @@ const FoodCard = ({food}) => {
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={foodURL} alt="Shoes" /></figure>
+                <PhotoProvider>
+                    <PhotoView key={_id} src={foodURL}>
+                      <figure><img src={foodURL} alt="Shoes" /></figure>
+                    </PhotoView>
+                </PhotoProvider>
                 <div className="card-body">
                     <h2 className="card-title">
                     {foodNamed}
