@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ProviderContext } from '../../contextApi/ContextApi';
 
@@ -90,6 +90,9 @@ const Register = () => {
           </label>
           <input type="password" name='confirmPassword' placeholder="confirm password" className="input input-bordered" required />
         </div>
+        <label className='label'>
+          <Link to={'/login'} className='label-text-alt link link-hover'>Login</Link>
+        </label>
         <div className="form-control mt-6">
           <button className="btn btn-primary" type='submit'>Register</button>
         </div>

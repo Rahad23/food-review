@@ -6,6 +6,7 @@ import { ProviderContext } from './../../../contextApi/ContextApi';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {logout, userData} = useContext(ProviderContext);
+  console.log(userData);
   // const {displayName, email,emailVerified,uid, photoURL} = userData;
   
   const userLogout=()=>{

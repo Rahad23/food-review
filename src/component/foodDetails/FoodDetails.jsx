@@ -25,7 +25,7 @@ const FoodDetails = () => {
 </div>
 {/* customar review section */}
         <div className='mt-5'>
-            <CustomarReview></CustomarReview>
+            <CustomarReview id={_id}></CustomarReview>
         </div>
         </div>
     );
