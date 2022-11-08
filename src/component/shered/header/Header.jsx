@@ -1,9 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../img/logo.png';
+import { ProviderContext } from './../../../contextApi/ContextApi';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const {logout, userData} = useContext(ProviderContext);
+  const userLogout=()=>{
+    logout()
+    .then(() => {})
+    .catch((error) => {}
+    );
+  }
   return (
     <div>
       <div className="" style={{ backgroundColor: "rgba(25, 42, 86,1.0)" }}>
@@ -53,16 +61,33 @@ const Header = () => {
               </li>
             </ul>
             <ul className="flex items-center hidden space-x-8 lg:flex">
-              <li>
-                <a
-                  href="/"
+              {
+                userData && userData?.email ?
+                
+                
+                <li>
+                <Link
+                  onClick={userLogout}
                   className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#fc834b] hover:bg-[#db5a1e] focus:shadow-outline focus:outline-none"
                   aria-label="Sign up"
                   title="Sign up"
                 >
-                  Sign up
-                </a>
+                 Logout
+                </Link>
               </li>
+              :
+              <li>
+              <Link
+                to="/login"
+                className="inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-[#fc834b] hover:bg-[#db5a1e] focus:shadow-outline focus:outline-none"
+                aria-label="Sign up"
+                title="Sign up"
+              >
+               Login
+              </Link>
+            </li>
+              }
+              
             </ul>
             <div className="lg:hidden">
               <button
@@ -162,12 +187,12 @@ const Header = () => {
                           </a>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                          <Link
+                            to="/login"
                             className="inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none bg-[#fc834b] hover:bg-[#db5a1e]"
                           >
                             Sign up
-                          </a>
+                          </Link>
                         </li>
                       </ul>
                     </nav>

@@ -1,0 +1,10 @@
+/* .register{
+    background-image: url('../../img/gif/register.gif');
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 500px;
+} */
+.register{
+    display: grid;
+    grid-template-columns: 3fr 4fr;
+}
