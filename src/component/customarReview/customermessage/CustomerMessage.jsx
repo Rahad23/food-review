@@ -11,7 +11,7 @@ const CustomerMessage = () => {
         fetch('http://localhost:5000/comment')
         .then(res=>res.json())
         .then(data=>setFeedback(data));
-    },[])
+    },[feedback])
 
     return (
         <div className='mt-14'>

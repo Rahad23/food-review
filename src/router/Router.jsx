@@ -1,4 +1,5 @@
 import AllCategoryPage from "../component/allCategoryPage/AllCategoryPage";
+import ErrorPage from "../component/errorpage/ErrorPage";
 import FoodAddForm from "../component/foodCategoryAddForm/FoodAddForm";
 import FoodDetails from "../component/foodDetails/FoodDetails";
 import Home from "../component/home/Home";
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
         {
             path: '/',
             element: <Main></Main>,
+            errorElement: <ErrorPage></ErrorPage>,
             children:[
                 {
                     path: '/',
