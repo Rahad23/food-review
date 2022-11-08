@@ -6,6 +6,8 @@ import { ProviderContext } from './../../../contextApi/ContextApi';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {logout, userData} = useContext(ProviderContext);
+  // const {displayName, email,emailVerified,uid, photoURL} = userData;
+  
   const userLogout=()=>{
     logout()
     .then(() => {})
@@ -61,10 +63,21 @@ const Header = () => {
               </li>
             </ul>
             <ul className="flex items-center hidden space-x-8 lg:flex">
+            <li>
+                 {
+                  userData && userData?.email 
+                  ? 
+                  <div className='flex justify-center items-center'>
+                      <img className='w-14 rounded-full mr-2' src={userData?.photoURL ? userData?.photoURL : "https://www.publicdomainpictures.net/pictures/280000/velka/not-found-image-15383864787lu.jpg"} alt="" />
+                      <h1 className='text-white'>{userData?.displayName ? userData?.displayName : "Not-Found"}</h1>
+                  </div>
+                  :
+                  ""
+                 }
+              </li>
               {
-                userData && userData?.email ?
-                
-                
+                userData && userData?.email 
+                ?
                 <li>
                 <Link
                   onClick={userLogout}
