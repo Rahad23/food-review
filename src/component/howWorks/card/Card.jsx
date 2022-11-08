@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ({data}) => {
     const{details, img, number, title, _id}=data;
-    console.log(data)
+    // console.log(data)
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100">

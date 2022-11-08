@@ -1,5 +1,6 @@
 import React from 'react';
 import { BsArrowRightCircleFill } from 'react-icons/bs';
+import { Link } from 'react-router-dom';
 
 const FoodCard = ({foods}) => {
     const {foodDescription,foodNamed,foodPrice,foodURL,_id} = foods;
@@ -19,7 +20,9 @@ const FoodCard = ({foods}) => {
                     <p>{desription}</p>
                     <div className="card-actions justify-between items-center mt-2">
                         <div className='flex items-center'>
-                          <BsArrowRightCircleFill title='Food-Details' className='mt-2 text-2xl cursor-pointer text-[#fc834b]'></BsArrowRightCircleFill>
+                            <Link to={`/foodDetails/${_id}`}>
+                              <BsArrowRightCircleFill title='Food-Details' className='mt-2 text-2xl cursor-pointer text-[#fc834b]'></BsArrowRightCircleFill>
+                            </Link>
                         </div>
                     <div>
                         <div className="badge badge-outline">{foodNamed}</div> 
