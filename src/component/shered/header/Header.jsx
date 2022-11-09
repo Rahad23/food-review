@@ -75,7 +75,7 @@ const Header = () => {
                   title="Our product"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  My reviews
+                  {/* My reviews */}
                 </Link>
               </li>
               <li>
@@ -85,7 +85,7 @@ const Header = () => {
                   title="Our product"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  Add service
+                  {/* Add service */}
                 </Link>
               </li>
               <li>
@@ -95,7 +95,7 @@ const Header = () => {
                   title="Product pricing"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  Blog
+                  {/* Blog */}
                 </Link>
               </li>
             </ul>
