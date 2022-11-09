@@ -46,7 +46,6 @@ const Login = () => {
               localStorage.setItem('key', data.token);
               console.log(data)
             })
-
             target.reset();
             navigate(from, { replace: true });
             toast.success("Login success full");

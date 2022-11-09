@@ -13,14 +13,17 @@ const Myreview = () => {
     const [feedBack, setFeedback] = useState([]);
     
     useEffect(()=>{
-         fetch(`http://localhost:5000/userReview/${userData?.email}`,{
-            headers: {
-                authorization: `bearer ${localStorage.getItem('key')}`,
-            }
-         })
-        .then(res=>res.json())
-        .then(data=>setFeedback(data))
-    },[feedBack])
+        if(userData?.email){
+            fetch(`http://localhost:5000/userReview/${userData?.email}`,{
+                headers: {
+                    authorization: `bearer ${localStorage.getItem('key')}`,
+                }
+             })
+            .then(res=>res.json())
+            .then(data=>setFeedback(data))
+        }
+         
+    },[userData?.email])
     return (
         <div className='mt-20 container mx-auto'>
             
