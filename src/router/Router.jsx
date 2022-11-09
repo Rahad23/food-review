@@ -1,4 +1,5 @@
 import AllCategoryPage from "../component/allCategoryPage/AllCategoryPage";
+import EditFeedBack from "../component/editFeedBack/EditFeedBack";
 import ErrorPage from "../component/errorpage/ErrorPage";
 import FoodAddForm from "../component/foodCategoryAddForm/FoodAddForm";
 import FoodDetails from "../component/foodDetails/FoodDetails";
@@ -45,6 +46,11 @@ export const router = createBrowserRouter([
                 {
                     path: '/myReview',
                     element: <Myreview></Myreview>
+                },
+                {
+                    path: '/editFeedback/:id',
+                    element: <EditFeedBack></EditFeedBack>,
+                    loader: async({params})=> fetch(`http://localhost:5000/commentUpdate/${params.id}`)
                 }
             ]
         }

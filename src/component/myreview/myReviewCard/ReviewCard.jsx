@@ -75,8 +75,8 @@ const ReviewCard = ({data}) => {
                     <div className="dropdown dropdown-end">
                         <label tabIndex={0} className="p-2 font-bold text-white rounded-lg bg-lime-800 m-1 cursor-pointer">Action<IoMdArrowDropdown className='inline'></IoMdArrowDropdown></label>
                         <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                            <li><Link>Edit</Link></li>
-                            <li><Link onClick={()=>handleDelete(_id)}>Delete</Link></li>
+                            <li className='mb-2'><Link className='bg-lime-700 text-white' to={`/editFeedback/${_id}`}>Edit</Link></li>
+                            <li><Link className='bg-red-500 text-white' onClick={()=>handleDelete(_id)}>Delete</Link></li>
                         </ul>
                         </div>
                     </div>

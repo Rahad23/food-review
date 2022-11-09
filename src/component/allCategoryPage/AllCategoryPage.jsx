@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import FoodCard from './foodCard/FoodCard';
+import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const AllCategoryPage = () => {
+    useTitle("All-Category");
     const [food, setFood]=useState([]);
 
     useEffect(()=>{
