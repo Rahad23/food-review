@@ -1,8 +1,9 @@
 import React from 'react';
+import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const FoodAddForm = () => {
 
-
+useTitle("Add-Item");
 
     const foodData =(e)=>{
         e.preventDefault();

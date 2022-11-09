@@ -1,12 +1,13 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import CustomerMessage from './customermessage/CustomerMessage';
 import { AiFillStar } from 'react-icons/ai';
 import { ProviderContext } from './../../contextApi/ContextApi';
 import { toast } from 'react-toastify';
-const CustomarReview = ({id}) => {
+const CustomarReview = ({data}) => {
+    // console.log(data);
     // use context get user data
     const{userData}=useContext(ProviderContext);
-    console.log(userData);
+    // console.log(userData);
     const [rating, setRating]= useState(5);
 
     const getMessgae=(e)=>{
@@ -14,12 +15,16 @@ const CustomarReview = ({id}) => {
         const message = e.target.comment.value;
         if(!message){
              toast.warning('Type feedback'); 
-             return
+             return;
         }
         const feedBackData={
             name: userData?.displayName,
             email: userData?.email,
-            productId: id,
+            foodName: data?.foodNamed,
+            foodDescription: data?.foodDescription,
+            foodPrice: data?.foodPrice,
+            foodUrl: data?.foodURL,
+            foodId: data?._id,
             imgUrl: userData?.photoURL,
             message: message,
             rating: rating
@@ -75,7 +80,7 @@ const CustomarReview = ({id}) => {
                
                 </div>
             </form>
-            <CustomerMessage id={id}></CustomerMessage>
+            <CustomerMessage id={data?._id}></CustomerMessage>
         </div>
         </div>
         </div>

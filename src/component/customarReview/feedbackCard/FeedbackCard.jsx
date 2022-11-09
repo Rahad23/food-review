@@ -49,7 +49,8 @@ console.log(rating);
                 
             </div>
            <div>
-            <p>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
+            <h1 className='text-red-600 text-center mb-1 font-semibold'>{name} Comment</h1>
+            <p className='text-center text-black text-lg font-semibold'>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
             </div>
             </div>
         </div>

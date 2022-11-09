@@ -6,7 +6,7 @@ import { ProviderContext } from './../../../contextApi/ContextApi';
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const {logout, userData} = useContext(ProviderContext);
-  console.log(userData);
+  // console.log(userData);
   // const {displayName, email,emailVerified,uid, photoURL} = userData;
   
   const userLogout=()=>{
@@ -75,7 +75,7 @@ const Header = () => {
                   title="Our product"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  
+                  My reviews
                 </Link>
               </li>
               <li>
@@ -85,18 +85,18 @@ const Header = () => {
                   title="Our product"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  
+                  Add service
                 </Link>
               </li>
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/"
                   aria-label="Product pricing"
                   title="Product pricing"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
-                  
-                </a>
+                  Blog
+                </Link>
               </li>
             </ul>
             }

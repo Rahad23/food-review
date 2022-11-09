@@ -2,10 +2,12 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ProviderContext } from '../../contextApi/ContextApi';
+import useTitle from './../../titleChangeHook/UseTitleChange';
 
 
 const Register = () => {
     const navigate = useNavigate();
+    useTitle("Register");
     const {createUserEmialPassword, updateUserData, userData} = useContext(ProviderContext);
     if(userData && userData?.email){
         return navigate('/');

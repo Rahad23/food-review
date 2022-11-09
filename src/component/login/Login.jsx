@@ -1,13 +1,17 @@
 import React, { useContext } from 'react';
 import { ProviderContext } from './../../contextApi/ContextApi';
 import { toast } from 'react-toastify';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { BsGoogle } from 'react-icons/bs';
 import { GoogleAuthProvider } from 'firebase/auth';
+import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const Login = () => {
     const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
     const {loginEmailAndPassword, signinWithPopup, userData} = useContext(ProviderContext);
+    useTitle("Login");
     if(userData && userData?.email){
         return <>
         {
@@ -27,10 +31,8 @@ const Login = () => {
             const user = userCredential.user;
             console.log(user);
             target.reset();
-            navigate('/');
+            navigate(from, { replace: true });
             toast.success("Login success full");
-
-            console.log(user)
             // ...
           })
           .catch((error) => {
@@ -38,7 +40,6 @@ const Login = () => {
             const errorMessage = error.message;
             toast.error(errorMessage);
           });
-        console.log(email, password);
     }
 // set google signin
 const signinPopupGoogle=()=>{

@@ -7,6 +7,7 @@ import Login from "../component/login/Login";
 import Main from "../component/main/Main";
 import Myreview from "../component/myreview/Myreview";
 import Register from "../component/register/Register";
+import PrivateRoute from "../privateRoute/PrivateRoute";
 
 const { createBrowserRouter } = require("react-router-dom");
 
@@ -22,15 +23,15 @@ export const router = createBrowserRouter([
                 },
                 {
                     path: '/foodAdd',
-                    element: <FoodAddForm></FoodAddForm>
+                    element: <PrivateRoute><FoodAddForm></FoodAddForm></PrivateRoute>
                 },
                 {
                     path: '/allFood',
-                    element: <AllCategoryPage></AllCategoryPage>
+                    element: <PrivateRoute><AllCategoryPage></AllCategoryPage></PrivateRoute>
                 },
                 {
                     path: '/foodDetails/:id',
-                    element: <FoodDetails></FoodDetails>,
+                    element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
                     loader: async({params})=> fetch(`http://localhost:5000/food/${params.id}`)
                 },
                 {
