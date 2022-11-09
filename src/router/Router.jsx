@@ -5,6 +5,7 @@ import FoodDetails from "../component/foodDetails/FoodDetails";
 import Home from "../component/home/Home";
 import Login from "../component/login/Login";
 import Main from "../component/main/Main";
+import Myreview from "../component/myreview/Myreview";
 import Register from "../component/register/Register";
 
 const { createBrowserRouter } = require("react-router-dom");
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
                 {
                     path: '/login',
                     element: <Login></Login>
+                },
+                {
+                    path: '/myReview',
+                    element: <Myreview></Myreview>
                 }
             ]
         }

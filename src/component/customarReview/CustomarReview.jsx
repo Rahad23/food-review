@@ -25,7 +25,7 @@ const CustomarReview = ({id}) => {
             rating: rating
         }
         // console.log(feedBackData)
-        fetch('http://localhost:5000/comment',{
+        fetch(`http://localhost:5000/comment`,{
             method:"POST",
             headers:{
                 'content-type': 'application/json',
@@ -75,7 +75,7 @@ const CustomarReview = ({id}) => {
                
                 </div>
             </form>
-            <CustomerMessage></CustomerMessage>
+            <CustomerMessage id={id}></CustomerMessage>
         </div>
         </div>
         </div>

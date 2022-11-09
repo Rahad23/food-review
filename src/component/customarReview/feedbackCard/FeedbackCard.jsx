@@ -15,7 +15,7 @@ console.log(rating);
         <div className="card-body">
             <div className='grid card-grid-set'>
             <div className='text-left'>
-                <img className='w-36 rounded-2xl' src={imgUrl} alt="" />
+                <img className='w-12 rounded-2xl' src={imgUrl} alt="" />
                 <h2 className='mt-2 text-lg font-semibold text-slate-900'>Name: {name}</h2>
                 {
                    parseFloat(rating) ===5 && <h2 className='flex items-center'>

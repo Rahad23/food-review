@@ -31,16 +31,19 @@ const Header = () => {
                 Kruton <span className='tex-4xl text-[#fc834b]'>.</span>
               </span>
             </a>
-            <ul className="flex items-center hidden space-x-8 lg:flex">
+            {
+              userData && userData?.email 
+              ? 
+              <ul className="flex items-center hidden space-x-8 lg:flex">
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/myReview"
                   aria-label="Our product"
                   title="Our product"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
                   My reviews
-                </a>
+                </Link>
               </li>
               <li>
                 <Link
@@ -63,6 +66,41 @@ const Header = () => {
                 </a>
               </li>
             </ul>
+            :
+            <ul className="flex items-center hidden space-x-8 lg:flex">
+              <li>
+                <Link
+                  to="/myReview"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  
+                </Link>
+              </li>
+              <li>
+                <Link
+                  to="/foodAdd"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  
+                </Link>
+              </li>
+              <li>
+                <a
+                  href="/"
+                  aria-label="Product pricing"
+                  title="Product pricing"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  
+                </a>
+              </li>
+            </ul>
+            }
+            
             <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
                  {
