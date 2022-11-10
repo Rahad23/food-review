@@ -54,7 +54,7 @@ const CustomarReview = ({data}) => {
    
 
     return (
-        <div>
+        <div className='-z-50'>
             <div id='#review' className="card lg:w-[700px] lg:mt-0 mt-11 w-[300px] bg-base-100 shadow-xl mx-auto">
         <div className="lg:card-body w-full">
             <h1 className='text-center text-2xl font-bold border-dotted border-2 border-sky-500 rounded-lg p-4' style={{textShadow:"2px 2px 3px rgba(53, 59, 72,.5)", boxShadow:"inset 0 0 10px rgba(52, 73, 94,.8)"}}>Customer Review</h1>

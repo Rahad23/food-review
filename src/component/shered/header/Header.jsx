@@ -77,14 +77,14 @@ const Header = () => {
               </li>
               
               <li>
-                <a
-                  href="/"
+                <Link
+                  to="/blog"
                   aria-label="Product pricing"
                   title="Product pricing"
                   className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                 >
                   Blog
-                </a>
+                </Link>
               </li>
             </ul>
 
@@ -129,7 +129,7 @@ const Header = () => {
               }
               
             </ul>
-            <div className="lg:hidden">
+            <div className="lg:hidden z-50">
               <button
                 aria-label="Open Menu"
                 title="Open Menu"
@@ -186,43 +186,58 @@ const Header = () => {
                     </div>
                     <nav>
                       <ul className="space-y-4">
-                      <Link
-                          to="/myReview"
+                      {
+            userData?.email ?  <li>
+                <Link
+                  to="/myReview"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  My reviews
+                </Link>
+          </li>
+          :
+          ""
+            }
+                       {
+               userData?.email ?
+<li>
+                
+                <Link
+                  to="/foodAdd"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Add service
+                </Link>
+              </li>
+              :
+              ""
+             }
+
+                        <li>
+                        <Link
+                          to="/service"
                           aria-label="Our product"
                           title="Our product"
                           className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                         >
-                          My reviews
+                          Services
                         </Link>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Features
-                          </a>
                         </li>
                         <li>
-                          <a
-                            href="/"
+                        <li>
+                          <Link
+                            to="/blog"
                             aria-label="Product pricing"
                             title="Product pricing"
-                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
+                            className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
                           >
-                            Pricing
-                          </a>
+                            Blog
+                          </Link>
                         </li>
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="About us"
-                            title="About us"
-                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            About us
-                          </a>
                         </li>
                         <li>
                           <Link
