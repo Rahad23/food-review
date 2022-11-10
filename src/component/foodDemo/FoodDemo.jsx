@@ -15,7 +15,7 @@ const FoodDemo = () => {
                 foods.map(food => <FoodCard key={food?._id} food={food}></FoodCard>)
             }
             <div className='mt-3 flex justify-center items-center w-[300%]'>
-                <Link to={'/allFood'} className="text-slate-900 text-lg hover:text-gray-700 font-medium">See All</Link>
+                <Link to={'/allFood'} className="text-slate-900 text-2xl hover:text-gray-700 font-bold">See All</Link>
             </div>
         </div>
     );

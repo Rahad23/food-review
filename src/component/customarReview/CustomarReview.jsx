@@ -79,7 +79,7 @@ const CustomarReview = ({ data }) => {
                             {
                                 userData && userData?.email
                                     ?
-                                    <button className="btn btn-active btn-secondary disabled" type='submit' >Submit</button>
+                                    <button className="btn btn-active btn-secondary disabled" type='submit'>Submit</button>
                                     :
                                     <button onClick={userLoginAlert} className="btn btn-active btn-secondary disabled" type='submit' >Submit</button>
                             }
