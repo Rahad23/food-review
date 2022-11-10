@@ -24,7 +24,7 @@ const FoodAddForm = () => {
       foodURL
     }
 
-    fetch('https://cooking-server.vercel.app/food', {
+    fetch('https://cooking-server-rahad23.vercel.app/food', {
       method: "POST",
       headers: {
         "content-type": "application/json",

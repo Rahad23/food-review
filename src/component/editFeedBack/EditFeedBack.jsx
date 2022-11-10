@@ -8,7 +8,7 @@ const EditFeedBack = () => {
     const comment = useLoaderData();
     // console.log(comment);
     const navigate = useNavigate();
-    const { message,time, email, foodDescription, foodId, foodName, foodPrice, foodUrl, name, _id, imgUrl } = comment;
+    const { message, time, email, foodDescription, foodId, foodName, foodPrice, foodUrl, name, _id, imgUrl } = comment;
 
     const { userData } = useContext(ProviderContext);
     // set rating hook
@@ -31,7 +31,7 @@ const EditFeedBack = () => {
             name,
             imgUrl
         }
-        fetch(`https://cooking-server.vercel.app/commentUpdate/${_id}`, {
+        fetch(`https://cooking-server-rahad23.vercel.app/commentUpdate/${_id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': 'application/json',

@@ -16,7 +16,7 @@ const ReviewCard = ({ data }) => {
         const permition = window.confirm("You want to delete this feedback");
 
         if (permition) {
-            fetch(`https://cooking-server.vercel.app/comment/${_id}`, {
+            fetch(`https://cooking-server-rahad23.vercel.app/comment/${_id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())
