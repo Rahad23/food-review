@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { ProviderContext } from './../../contextApi/ContextApi';
 import { toast } from 'react-toastify';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
@@ -8,6 +8,7 @@ import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const Login = () => {
   const navigate = useNavigate();
+  const [loding, setLoading] = useState(false);
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   const { loginEmailAndPassword, signinWithPopup, userData } = useContext(ProviderContext);
@@ -27,6 +28,7 @@ const Login = () => {
     const password = target.password.value;
     loginEmailAndPassword(email, password)
       .then((userCredential) => {
+        setLoading(true);
         // Signed in 
         const user = userCredential.user;
         // console.log(user);
@@ -34,7 +36,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('https://cooking-server-rahad23.vercel.app/jwt', {
+        fetch('http://localhost:5000/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
@@ -61,6 +63,7 @@ const Login = () => {
   const signinPopupGoogle = () => {
     signinWithPopup()
       .then((result) => {
+        setLoading(true);
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
@@ -70,7 +73,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('https://cooking-server-rahad23.vercel.app/jwt', {
+        fetch('http://localhost:5000/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
@@ -82,8 +85,12 @@ const Login = () => {
             localStorage.setItem('key', data.token);
             // console.log(data)
           })
+          
+            
+          
         navigate('/');
         toast.success("Login success-full");
+
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -100,6 +107,12 @@ const Login = () => {
 
   return (
     <div>
+      {
+        loding ? <div className='flex justify-center items-center mt-56 mb-60'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div></div>
+          :
+          <div className='flex hidden justify-center items-center mt-56 mb-60'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div></div>
+      }
+
       <div className="hero min-h-screen">
         <div className="hero-content flex-col">
           <div className="text-center lg:text-left">
@@ -136,13 +149,16 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <button onClick={signinPopupGoogle} className="btn bg-[#a55eea] border-none" type='submit'><BsGoogle className='text-3xl text-[#fff] mr-2'></BsGoogle> Login-with-Google</button>
                 </div>
+              
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
+    
   );
+ 
 };
 
 export default Login;

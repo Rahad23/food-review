@@ -7,7 +7,7 @@ const AllCategoryPage = () => {
     const [food, setFood] = useState([]);
 
     useEffect(() => {
-        fetch('https://cooking-server-rahad23.vercel.app/foods')
+        fetch('http://localhost:5000/foods')
             .then(res => res.json())
             .then(data => setFood(data))
     }, [])

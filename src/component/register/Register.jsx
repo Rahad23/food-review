@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { ProviderContext } from '../../contextApi/ContextApi';
@@ -6,6 +6,8 @@ import useTitle from './../../titleChangeHook/UseTitleChange';
 
 
 const Register = () => {
+  // set loading
+  const [loding, setLoader]=useState(false);
     const navigate = useNavigate();
     useTitle("Register");
     const {createUserEmialPassword, updateUserData, userData} = useContext(ProviderContext);
@@ -13,6 +15,7 @@ const Register = () => {
         return navigate('/');
     }
     const registerEmailAndPassword=(e)=>{
+      setLoader(true);
         e.preventDefault();
         const target = e.target;
         const name = target.name.value;
@@ -42,7 +45,7 @@ const Register = () => {
             // ..
           });
 
-        console.log(name, email, photoURL, password, Confirmpassword);
+        // console.log(name, email, photoURL, password, Confirmpassword);
     }
     const hendleUpdateUser = (userName, PhotoURL) =>{
         const updateUser = {
@@ -54,6 +57,11 @@ const Register = () => {
 
     return (
         <div>
+          {
+        loding ? <div className='flex justify-center items-center mt-56 mb-60'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div></div>
+          :
+          <div className='flex hidden justify-center items-center mt-56 mb-60'><div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin dark:border-violet-400"></div></div>
+      }
         <div className="hero min-h-screen mt-28">
   <div className="hero-content flex-col">
     <div className="text-center lg:text-left">
