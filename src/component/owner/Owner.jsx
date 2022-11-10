@@ -4,7 +4,7 @@ import Card from './card/Card';
 const Owner = () => {
     const [owner, setOwner] = useState([]);
     useEffect(() => {
-        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/owner')
+        fetch('https://cooking-server-rahad23.vercel.app/owner')
             .then(res => res.json())
             .then(data => setOwner(data))
     }, [])

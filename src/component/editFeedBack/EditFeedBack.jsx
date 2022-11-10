@@ -31,7 +31,7 @@ const EditFeedBack = () => {
             name,
             imgUrl
         }
-        fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/commentUpdate/${_id}`, {
+        fetch(`https://cooking-server-rahad23.vercel.app/commentUpdate/${_id}`, {
             method: "PATCH",
             headers: {
                 'Content-type': 'application/json',

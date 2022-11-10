@@ -9,7 +9,7 @@ const CustomerMessage = ({ id }) => {
     const [feedback, setFeedback] = useState([]);
     // console.log(feedback);
     useEffect(() => {
-        fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/comment/${id}`)
+        fetch(`https://cooking-server-rahad23.vercel.app/comment/${id}`)
             .then(res => res.json())
             .then(data => setFeedback(data));
     }, [feedback])

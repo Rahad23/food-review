@@ -33,7 +33,7 @@ const CustomarReview = ({ data }) => {
             rating: rating
         }
         // console.log(feedBackData)
-        fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/comment`, {
+        fetch(`https://cooking-server-rahad23.vercel.app/comment`, {
             method: "POST",
             headers: {
                 'content-type': 'application/json',

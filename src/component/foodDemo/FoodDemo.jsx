@@ -5,7 +5,7 @@ import FoodCard from './foodCard/FoodCard';
 const FoodDemo = () => {
     const [foods, setFood] = useState([]);
     useEffect(() => {
-        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/food')
+        fetch('https://cooking-server-rahad23.vercel.app/food')
             .then(res => res.json())
             .then(data => setFood(data))
     }, [])

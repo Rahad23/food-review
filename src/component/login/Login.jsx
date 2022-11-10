@@ -36,7 +36,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/jwt', {
+        fetch('https://cooking-server-rahad23.vercel.app/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
@@ -73,7 +73,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/jwt', {
+        fetch('https://cooking-server-rahad23.vercel.app/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
