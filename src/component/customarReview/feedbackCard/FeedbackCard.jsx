@@ -11,7 +11,7 @@ console.log(rating);
     // console.log(feedback)
     return (
         <div>
-            <div className="card mb-7 bg-primary text-primary-content">
+            <div className="card mb-7 bg-primary lg:p-0 p-5 text-primary-content">
         <div className="card-body">
             <div className='lg:grid card-grid-set flex justify-between'>
             <div className='text-left'>
@@ -49,7 +49,7 @@ console.log(rating);
                 }
                 
             </div>
-           <div className='lg:mt-0 mt-8'>
+           <div className='mt-0 lg:mt-8'>
             <h1 className='text-red-600 text-center lg:block hidden mb-1 font-medium lg:font-semibold'>{name} Comment</h1>
             <h1 className='text-red-600 text-center lg:hidden block mb-1 font-normal lg:font-semibold'>Comment</h1>
             <p className='text-center text-black lg:text-lg text-sm font-normal lg:font-semibold'>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>

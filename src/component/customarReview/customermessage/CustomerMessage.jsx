@@ -2,22 +2,22 @@ import React, { useContext, useEffect, useState } from 'react';
 import FeedbackCard from '../feedbackCard/FeedbackCard';
 import { ProviderContext } from './../../../contextApi/ContextApi';
 
-const CustomerMessage = ({id}) => {
+const CustomerMessage = ({ id }) => {
     // console.log(id)
-    const {userData}= useContext(ProviderContext);
+    const { userData } = useContext(ProviderContext);
     // get feedback 
-    const [feedback, setFeedback]=useState([]);
+    const [feedback, setFeedback] = useState([]);
     // console.log(feedback);
-    useEffect(()=>{
-        fetch(`http://localhost:5000/comment/${id}`)
-        .then(res=>res.json())
-        .then(data=>setFeedback(data));
-    },[feedback])
-    
+    useEffect(() => {
+        fetch(`https://cooking-server.vercel.app/comment/${id}`)
+            .then(res => res.json())
+            .then(data => setFeedback(data));
+    }, [feedback])
+
     return (
         <div className='mt-14'>
             {
-                feedback.map(feedback=><FeedbackCard key={feedback?._id} feedback={feedback}></FeedbackCard>)
+                feedback.map(feedback => <FeedbackCard key={feedback?._id} feedback={feedback}></FeedbackCard>)
             }
 
         </div>

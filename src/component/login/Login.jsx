@@ -7,60 +7,60 @@ import { GoogleAuthProvider } from 'firebase/auth';
 import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const Login = () => {
-    const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || '/';
-    const {loginEmailAndPassword, signinWithPopup, userData} = useContext(ProviderContext);
-    useTitle("Login");
-    if(userData && userData?.email){
-        return <>
-        {
-            navigate('/')
-        }
-        </>;
-    }
-    const loginUser=(e)=>{
-        e.preventDefault();
-        const target = e.target;
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const { loginEmailAndPassword, signinWithPopup, userData } = useContext(ProviderContext);
+  useTitle("Login");
+  if (userData && userData?.email) {
+    return <>
+      {
+        navigate('/')
+      }
+    </>;
+  }
+  const loginUser = (e) => {
+    e.preventDefault();
+    const target = e.target;
 
-        const email = target.email.value;
-        const password = target.password.value;
-        loginEmailAndPassword(email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // console.log(user);
-            const email = {
-              email: user.email
-            };
+    const email = target.email.value;
+    const password = target.password.value;
+    loginEmailAndPassword(email, password)
+      .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        // console.log(user);
+        const email = {
+          email: user.email
+        };
 
-            fetch('http://localhost:5000/jwt',{
-              method: "POST",
-              headers:{
-                'content-type': 'application/json',
-              },
-              body: JSON.stringify(email)
-            })
-            .then(res=>res.json())
-            .then(data=>{
-              localStorage.setItem('key', data.token);
-              // console.log(data)
-            })
-            target.reset();
-            navigate(from, { replace: true });
-            toast.success("Login success full");
-            // ...
+        fetch('https://cooking-server.vercel.app/jwt', {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(email)
+        })
+          .then(res => res.json())
+          .then(data => {
+            localStorage.setItem('key', data.token);
+            // console.log(data)
           })
-          .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            toast.error(errorMessage);
-          });
-    }
-// set google signin
-const signinPopupGoogle=()=>{
+        target.reset();
+        navigate(from, { replace: true });
+        toast.success("Login success full");
+        // ...
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        toast.error(errorMessage);
+      });
+  }
+  // set google signin
+  const signinPopupGoogle = () => {
     signinWithPopup()
-    .then((result) => {
+      .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential.accessToken;
@@ -70,18 +70,18 @@ const signinPopupGoogle=()=>{
           email: user.email
         };
 
-        fetch('http://localhost:5000/jwt',{
+        fetch('https://cooking-server.vercel.app/jwt', {
           method: "POST",
-          headers:{
+          headers: {
             'content-type': 'application/json',
           },
           body: JSON.stringify(email)
         })
-        .then(res=>res.json())
-        .then(data=>{
-          localStorage.setItem('key', data.token);
-          // console.log(data)
-        })
+          .then(res => res.json())
+          .then(data => {
+            localStorage.setItem('key', data.token);
+            // console.log(data)
+          })
         navigate('/');
         toast.success("Login success-full");
         // ...
@@ -96,53 +96,53 @@ const signinPopupGoogle=()=>{
         const credential = GoogleAuthProvider.credentialFromError(error);
         // ...
       });
-}
+  }
 
-    return (
-        <div>
-            <div className="hero min-h-screen">
-  <div className="hero-content flex-col">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold text-center">Login now</h1>
-    </div>
-    <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
-      <div className="card-body">
-        <form onSubmit={loginUser}>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Email</span>
-          </label>
-          <input type="email" name='email' placeholder="email" className="input input-bordered" />
+  return (
+    <div>
+      <div className="hero min-h-screen">
+        <div className="hero-content flex-col">
+          <div className="text-center lg:text-left">
+            <h1 className="text-5xl font-bold text-center">Login now</h1>
+          </div>
+          <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
+            <div className="card-body">
+              <form onSubmit={loginUser}>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Email</span>
+                  </label>
+                  <input type="email" name='email' placeholder="email" className="input input-bordered" />
+                </div>
+                <div className="form-control">
+                  <label className="label">
+                    <span className="label-text">Password</span>
+                  </label>
+                  <input type="password" name='password' placeholder="password" className="input input-bordered" />
+                  <div className='flex justify-between'>
+                    <label className="label">
+                      <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
+                    </label>
+                    <label className='label'>
+                      <Link to="/register" className='label-text-alt link link-hover text-orange-600'>Register</Link>
+                    </label>
+                  </div>
+                </div>
+                <div className="form-control mt-6">
+                  <button className="btn btn-primary" type='submit'>Login</button>
+                </div>
+                <h1 className='text-xl text-black text-center mt-5'>or</h1>
+                <hr />
+                <div className="form-control mt-6">
+                  <button onClick={signinPopupGoogle} className="btn bg-[#a55eea] border-none" type='submit'><BsGoogle className='text-3xl text-[#fff] mr-2'></BsGoogle> Login-with-Google</button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-        <div className="form-control">
-          <label className="label">
-            <span className="label-text">Password</span>
-          </label>
-          <input type="password" name='password' placeholder="password" className="input input-bordered" />
-         <div className='flex justify-between'>
-         <label className="label">
-            <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
-          </label>
-          <label className='label'>
-            <Link to="/register" className='label-text-alt link link-hover text-orange-600'>Register</Link>
-          </label>
-         </div>
-        </div>
-        <div className="form-control mt-6">
-          <button className="btn btn-primary" type='submit'>Login</button>
-        </div>
-        <h1 className='text-xl text-black text-center mt-5'>or</h1>
-        <hr />
-        <div className="form-control mt-6">
-          <button onClick={signinPopupGoogle} className="btn bg-[#a55eea] border-none" type='submit'><BsGoogle className='text-3xl text-[#fff] mr-2'></BsGoogle> Login-with-Google</button>
-        </div>
-        </form>
       </div>
     </div>
-  </div>
-</div>
-        </div>
-    );
+  );
 };
 
 export default Login;

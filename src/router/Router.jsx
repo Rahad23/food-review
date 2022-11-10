@@ -14,53 +14,53 @@ import PrivateRoute from "../privateRoute/PrivateRoute";
 const { createBrowserRouter } = require("react-router-dom");
 
 export const router = createBrowserRouter([
-        {
-            path: '/',
-            element: <Main></Main>,
-            errorElement: <ErrorPage></ErrorPage>,
-            children:[
-                {
-                    path: '/',
-                    element: <Home></Home>
-                },
-                {
-                    path: '/foodAdd',
-                    element: <PrivateRoute><FoodAddForm></FoodAddForm></PrivateRoute>
-                },
-                {
-                    path: '/allFood',
-                    element: <AllCategoryPage></AllCategoryPage>
-                },
-                {
-                    path: '/foodDetails/:id',
-                    element: <FoodDetails></FoodDetails>,
-                    loader: async({params})=> fetch(`http://localhost:5000/food/${params.id}`)
-                },
-                {
-                    path: '/register',
-                    element: <Register></Register>
-                },
-                {
-                    path: '/login',
-                    element: <Login></Login>
-                },
-                {
-                    path: '/myReview',
-                    element: <Myreview></Myreview>
-                },
-                {
-                    path: '/editFeedback/:id',
-                    element: <EditFeedBack></EditFeedBack>,
-                    loader: async({params})=> fetch(`http://localhost:5000/commentUpdate/${params.id}`)
-                },
-                {
-                    path: '/service',
-                    element: <AllCategoryPage></AllCategoryPage>
-                },
-                {
-                    path: '/blog',
-                    element: <Blog></Blog>
-                }
-            ]
-        }
+    {
+        path: '/',
+        element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
+        children: [
+            {
+                path: '/',
+                element: <Home></Home>
+            },
+            {
+                path: '/foodAdd',
+                element: <PrivateRoute><FoodAddForm></FoodAddForm></PrivateRoute>
+            },
+            {
+                path: '/allFood',
+                element: <AllCategoryPage></AllCategoryPage>
+            },
+            {
+                path: '/foodDetails/:id',
+                element: <FoodDetails></FoodDetails>,
+                loader: async ({ params }) => fetch(`https://cooking-server.vercel.app/food/${params.id}`)
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
+            },
+            {
+                path: '/login',
+                element: <Login></Login>
+            },
+            {
+                path: '/myReview',
+                element: <Myreview></Myreview>
+            },
+            {
+                path: '/editFeedback/:id',
+                element: <EditFeedBack></EditFeedBack>,
+                loader: async ({ params }) => fetch(`https://cooking-server.vercel.app/commentUpdate/${params.id}`)
+            },
+            {
+                path: '/service',
+                element: <AllCategoryPage></AllCategoryPage>
+            },
+            {
+                path: '/blog',
+                element: <Blog></Blog>
+            }
+        ]
+    }
 ])

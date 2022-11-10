@@ -10,8 +10,8 @@ const FoodDetails = () => {
     return (
         <div>
             <div className="card lg:card-side bg-base-100 shadow-xl mt-14 container mx-auto">
-            <figure><img className='w-56 lg:w-full' src={foodURL} alt="Album"/></figure>
-            <div className="card-body">
+            <figure><img className='w-64 lg:w-full rounded-lg' src={foodURL} alt="Album"/></figure>
+            <div className="card-body lg:mt-0 mt-6">
                 <div className='indicator'>
                 <span className="indicator-item badge badge-secondary text-sm font-semibold text-black">Hot</span> 
                  <h2 className="card-title text-red-900">{foodNamed}</h2>
