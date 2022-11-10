@@ -5,8 +5,9 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsStarHalf } from 'react-icons/bs';
 
 const FeedbackCard = ({feedback}) => {
-    const {imgUrl,message,name,productId,rating,_id} = feedback;
-console.log(rating);
+    const {imgUrl,time,message,name,productId,rating,_id} = feedback;
+
+
     const messages = message.length > 100 ? message.slice(0,100)+"..." : message;
     // console.log(feedback)
     return (

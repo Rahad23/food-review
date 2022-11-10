@@ -25,6 +25,7 @@ const Myreview = () => {
             .then(res => res.json())
             .then(data => {
                 localStorage.setItem('key', data.token);
+                
                 // console.log(data)
             })
     }

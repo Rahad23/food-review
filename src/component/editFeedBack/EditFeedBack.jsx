@@ -8,7 +8,7 @@ const EditFeedBack = () => {
     const comment = useLoaderData();
     // console.log(comment);
     const navigate = useNavigate();
-    const { message, email, foodDescription, foodId, foodName, foodPrice, foodUrl, name, _id, imgUrl } = comment;
+    const { message,time, email, foodDescription, foodId, foodName, foodPrice, foodUrl, name, _id, imgUrl } = comment;
 
     const { userData } = useContext(ProviderContext);
     // set rating hook
@@ -19,6 +19,7 @@ const EditFeedBack = () => {
         const target = e.target;
         const messages = target.comment.value;
         const updateData = {
+            time,
             message: messages,
             rating: ratings,
             email,

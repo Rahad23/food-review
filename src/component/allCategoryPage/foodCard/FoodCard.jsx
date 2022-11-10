@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
 
-const FoodCard = ({foods}) => {
+const FoodCard = ({foods, setLoding}) => {
     const {foodDescription,foodNamed,foodPrice,foodURL,_id} = foods;
 
     const desription = foodDescription.slice(0,100)+"...";
@@ -37,6 +37,9 @@ const FoodCard = ({foods}) => {
                     </div>
                 </div>
         </div>
+        {
+            setLoding(false)
+        }
         </div>
     );
 };
