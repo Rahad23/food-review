@@ -31,12 +31,12 @@ const ReviewCard = ({data}) => {
     return (
         <div>
             
-             <div className="card w-[70%] mx-auto mb-7 bg-primary text-primary-content">
+             <div className="card lg:w-[70%] w-50% mx-auto mb-7 bg-primary text-primary-content">
                 <div className="card-body">
-                    <div className='grid card-grid-sets'>
+                    <div className='lg:grid lg:card-grid-sets flex justify-between'>
                     <div className='text-left'>
                         <img className='w-12 rounded-2xl' src={foodUrl} alt="" />
-                        <h2 className='mt-2 text-lg font-semibold text-slate-900'>{foodName}</h2>
+                        <h2 className='mt-2 lg:text-lg text-sm font-semibold text-slate-900'>{foodName}</h2>
                         {
                            parseFloat(rating) ===5 && <h2 className='flex items-center'>
                                 <AiFillStar className='text-amber-500 text-lg'></AiFillStar>
@@ -69,7 +69,7 @@ const ReviewCard = ({data}) => {
                         
                     </div>
                    <div>
-                    <h1 className='text-xl font-bold text-red-500 text-center'>Comment</h1>
+                    <h1 className='lg:text-xl text-lg font-bold text-red-500 text-center'>Comment</h1>
                     <p className='text-center'>{messages?.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
                     </div>
                     <div className='flex justify-end'>

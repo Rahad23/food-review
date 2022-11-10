@@ -3,8 +3,9 @@ import CustomerMessage from './customermessage/CustomerMessage';
 import { AiFillStar } from 'react-icons/ai';
 import { ProviderContext } from './../../contextApi/ContextApi';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 const CustomarReview = ({data}) => {
-    // console.log(data);
+    const navigate = useNavigate();
     // use context get user data
     const{userData}=useContext(ProviderContext);
     // console.log(userData);
@@ -14,9 +15,9 @@ const CustomarReview = ({data}) => {
         e.preventDefault();
         const message = e.target.comment.value;
         if(!message){
-             toast.warning('Type feedback'); 
-             return;
-        }
+            toast.warning('Type feedback');
+            return;
+       }
         const feedBackData={
             name: userData?.displayName,
             email: userData?.email,
@@ -40,17 +41,21 @@ const CustomarReview = ({data}) => {
         .then(res=>res.json())
         .then(data=>{
             e.target.reset();
-            console.log(data);
+            if(data?.message){
+                return navigate('/login');
+            }
         })
+        
     }
-    
     const userLoginAlert=()=>{
-        toast.warning("Please login")
+        toast.warning("Please login");
+        return;
     }
+   
 
     return (
         <div>
-            <div className="card lg:w-[700px] lg:mt-0 mt-11 w-[300px] bg-base-100 shadow-xl mx-auto">
+            <div id='#review' className="card lg:w-[700px] lg:mt-0 mt-11 w-[300px] bg-base-100 shadow-xl mx-auto">
         <div className="lg:card-body w-full">
             <h1 className='text-center text-2xl font-bold border-dotted border-2 border-sky-500 rounded-lg p-4' style={{textShadow:"2px 2px 3px rgba(53, 59, 72,.5)", boxShadow:"inset 0 0 10px rgba(52, 73, 94,.8)"}}>Customer Review</h1>
             <form onSubmit={getMessgae} className='mt-10'>

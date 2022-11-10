@@ -1,4 +1,5 @@
 import AllCategoryPage from "../component/allCategoryPage/AllCategoryPage";
+import Blog from "../component/blogpage/Blog";
 import EditFeedBack from "../component/editFeedBack/EditFeedBack";
 import ErrorPage from "../component/errorpage/ErrorPage";
 import FoodAddForm from "../component/foodCategoryAddForm/FoodAddForm";
@@ -28,11 +29,11 @@ export const router = createBrowserRouter([
                 },
                 {
                     path: '/allFood',
-                    element: <PrivateRoute><AllCategoryPage></AllCategoryPage></PrivateRoute>
+                    element: <AllCategoryPage></AllCategoryPage>
                 },
                 {
                     path: '/foodDetails/:id',
-                    element: <PrivateRoute><FoodDetails></FoodDetails></PrivateRoute>,
+                    element: <FoodDetails></FoodDetails>,
                     loader: async({params})=> fetch(`http://localhost:5000/food/${params.id}`)
                 },
                 {
@@ -51,6 +52,14 @@ export const router = createBrowserRouter([
                     path: '/editFeedback/:id',
                     element: <EditFeedBack></EditFeedBack>,
                     loader: async({params})=> fetch(`http://localhost:5000/commentUpdate/${params.id}`)
+                },
+                {
+                    path: '/service',
+                    element: <AllCategoryPage></AllCategoryPage>
+                },
+                {
+                    path: '/blog',
+                    element: <Blog></Blog>
                 }
             ]
         }

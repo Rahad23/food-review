@@ -13,10 +13,11 @@ console.log(rating);
         <div>
             <div className="card mb-7 bg-primary text-primary-content">
         <div className="card-body">
-            <div className='lg:grid card-grid-set flex flex-col'>
+            <div className='lg:grid card-grid-set flex justify-between'>
             <div className='text-left'>
                 <img className='w-12 rounded-2xl' src={imgUrl} alt="" />
-                <h2 className='mt-2 text-lg font-semibold text-slate-900'>Name: {name}</h2>
+                <h2 className='lg:block hidden mt-2 lg:text-lg text-sm font-semibold text-slate-900'>Name: {name}</h2>
+                <h2 className='lg:hidden block mt-2 lg:text-lg text-sm font-semibold text-slate-900'>{name}</h2>
                 {
                    parseFloat(rating) ===5 && <h2 className='flex items-center'>
                         <AiFillStar className='text-amber-500 text-lg'></AiFillStar>
@@ -49,8 +50,9 @@ console.log(rating);
                 
             </div>
            <div className='lg:mt-0 mt-8'>
-            <h1 className='text-red-600 text-center mb-1 font-semibold'>{name} Comment</h1>
-            <p className='text-center text-black text-lg font-semibold'>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
+            <h1 className='text-red-600 text-center lg:block hidden mb-1 font-medium lg:font-semibold'>{name} Comment</h1>
+            <h1 className='text-red-600 text-center lg:hidden block mb-1 font-normal lg:font-semibold'>Comment</h1>
+            <p className='text-center text-black lg:text-lg text-sm font-normal lg:font-semibold'>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
             </div>
             </div>
         </div>

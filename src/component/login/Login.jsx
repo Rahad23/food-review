@@ -66,6 +66,22 @@ const signinPopupGoogle=()=>{
         const token = credential.accessToken;
         // The signed-in user info.
         const user = result.user;
+        const email = {
+          email: user.email
+        };
+
+        fetch('http://localhost:5000/jwt',{
+          method: "POST",
+          headers:{
+            'content-type': 'application/json',
+          },
+          body: JSON.stringify(email)
+        })
+        .then(res=>res.json())
+        .then(data=>{
+          localStorage.setItem('key', data.token);
+          // console.log(data)
+        })
         navigate('/');
         toast.success("Login success-full");
         // ...

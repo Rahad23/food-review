@@ -31,21 +31,26 @@ const Header = () => {
                 Kruton <span className='tex-4xl text-[#fc834b]'>.</span>
               </span>
             </a>
-            {
-              userData && userData?.email 
-              ? 
+          
               <ul className="flex items-center hidden space-x-8 lg:flex">
-              <li>
-                <Link
-                  to="/myReview"
-                  aria-label="Our product"
-                  title="Our product"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  My reviews
-                </Link>
-              </li>
-              <li>
+              {
+            userData?.email ?  <li>
+            <Link
+              to="/myReview"
+              aria-label="Our product"
+              title="Our product"
+              className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+            >
+              My reviews
+            </Link>
+          </li>
+          :
+          ""
+            }
+             {
+               userData?.email ?
+<li>
+                
                 <Link
                   to="/foodAdd"
                   aria-label="Our product"
@@ -55,6 +60,22 @@ const Header = () => {
                   Add service
                 </Link>
               </li>
+              :
+              ""
+             }
+
+<li>
+                
+                <Link
+                  to="/service"
+                  aria-label="Our product"
+                  title="Our product"
+                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                >
+                  Services
+                </Link>
+              </li>
+              
               <li>
                 <a
                   href="/"
@@ -66,40 +87,7 @@ const Header = () => {
                 </a>
               </li>
             </ul>
-            :
-            <ul className="flex items-center hidden space-x-8 lg:flex">
-              <li>
-                <Link
-                  to="/myReview"
-                  aria-label="Our product"
-                  title="Our product"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  {/* My reviews */}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/foodAdd"
-                  aria-label="Our product"
-                  title="Our product"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  {/* Add service */}
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/"
-                  aria-label="Product pricing"
-                  title="Product pricing"
-                  className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
-                >
-                  {/* Blog */}
-                </Link>
-              </li>
-            </ul>
-            }
+
             
             <ul className="flex items-center hidden space-x-8 lg:flex">
             <li>
@@ -198,16 +186,14 @@ const Header = () => {
                     </div>
                     <nav>
                       <ul className="space-y-4">
-                        <li>
-                          <a
-                            href="/"
-                            aria-label="Our product"
-                            title="Our product"
-                            className="font-medium tracking-wide text-white transition-colors duration-200 hover:text-deep-purple-accent-400"
-                          >
-                            Product
-                          </a>
-                        </li>
+                      <Link
+                          to="/myReview"
+                          aria-label="Our product"
+                          title="Our product"
+                          className="font-medium tracking-wide text-gray-100 transition-colors duration-200 hover:text-teal-accent-400"
+                        >
+                          My reviews
+                        </Link>
                         <li>
                           <a
                             href="/"

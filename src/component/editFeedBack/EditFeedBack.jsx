@@ -47,7 +47,7 @@ const EditFeedBack = () => {
     return (
         <div>
 
-<div className="card w-[700px] bg-base-100 shadow-xl mx-auto mt-20 ">
+<div className="card lg:w-[700px] w-40% bg-base-100 shadow-xl mx-auto mt-20 ">
         <div className="card-body">
             <h1 className='text-center text-2xl font-bold border-dotted border-2 border-sky-500 rounded-lg p-4' style={{textShadow:"2px 2px 3px rgba(53, 59, 72,.5)", boxShadow:"inset 0 0 10px rgba(52, 73, 94,.8)"}}>Customer Review</h1>
             <form onSubmit={editData} className='mt-10'>

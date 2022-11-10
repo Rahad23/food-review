@@ -19,7 +19,9 @@ const FoodDetails = () => {
                 <h2 className='text-xl font-semibold'>$<span className='text-black'>{foodPrice}</span></h2>
                 <p className='lg:w-96 w-none'>{foodDescription}</p>
                 <div className="card-actions justify-end">
-                <button className="btn btn-primary">Order-Now</button>
+                    <a for="#review">
+                <button className="btn btn-primary">Review</button>
+                    </a>
                 </div>
             </div>
 </div>

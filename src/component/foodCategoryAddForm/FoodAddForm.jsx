@@ -13,6 +13,10 @@ useTitle("Add-Item");
         const foodDescription = target.foodDescription.value;
         const foodURL = target.foodUrl.value;
 
+        if(!(foodNamed && foodPrice && foodDescription && foodURL)){
+          return alert.warning('Fill up all field');
+        }
+
         const foodData={
             foodNamed,
             foodPrice,
@@ -48,25 +52,25 @@ useTitle("Add-Item");
           <label className="label">
             <span className="label-text">Food-name</span>
           </label>
-          <input type="text" placeholder="Food-Name" name='foodName' className="input input-bordered" />
+          <input type="text" placeholder="Food-Name" name='foodName' className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Food-Price</span>
           </label>
-          <input type="number" name='foodPrice' placeholder="Food-Price" className="input input-bordered" />
+          <input type="number" name='foodPrice' placeholder="Food-Price" className="input input-bordered" required />
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Food-Description</span>
           </label>
-          <textarea name='foodDescription' className="textarea textarea-bordered h-24" placeholder="Food-Description"></textarea>
+          <textarea name='foodDescription' className="textarea textarea-bordered h-24" placeholder="Food-Description" required></textarea>
         </div>
         <div className="form-control">
           <label className="label">
             <span className="label-text">Food-URL</span>
           </label>
-          <input name='foodUrl' type="text" placeholder="SET URL" className="input input-bordered" />
+          <input name='foodUrl' type="text" placeholder="SET URL" className="input input-bordered" required />
         </div>
         <div className="form-control mt-6">
           <button className="btn btn-primary" type='submit'>Add</button>

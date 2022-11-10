@@ -8,8 +8,27 @@ const Myreview = () => {
     useTitle("My-Review");
 const navigate = useNavigate();
     const {userData} = useContext(ProviderContext);
-    // console.log(userData);
+    console.log(userData);
    
+    const email = {
+        email: userData?.email
+      };
+
+     if(userData?.email){
+        fetch('http://localhost:5000/jwt',{
+            method: "POST",
+            headers:{
+              'content-type': 'application/json',
+            },
+            body: JSON.stringify(email)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+            localStorage.setItem('key', data.token);
+            // console.log(data)
+          })
+     }
+
     const [feedBack, setFeedback] = useState([]);
     // console.log(feedBack);
     useEffect(()=>{
