@@ -44,7 +44,7 @@ const Login = () => {
             .then(res=>res.json())
             .then(data=>{
               localStorage.setItem('key', data.token);
-              console.log(data)
+              // console.log(data)
             })
             target.reset();
             navigate(from, { replace: true });

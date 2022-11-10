@@ -30,7 +30,7 @@ const EditFeedBack = () => {
             name,
             imgUrl
         }
-        fetch(`http://localhost:5000/commentUpdate/${_id}`, {
+        fetch(`http://localhost:5000/commentUpdate/${_id}`,{
             method: "PATCH",
             headers:{
                 'Content-type': 'application/json',

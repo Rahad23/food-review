@@ -11,7 +11,7 @@ const FoodCard = ({foods}) => {
 
     return (
         <div>
-             <div className="card w-96 bg-base-100 shadow-xl">
+             <div className="card mx-auto w-72 lg:w-96 bg-base-100 shadow-xl">
              <PhotoProvider>
                     <PhotoView key={_id} src={foodURL}>
                       <figure><img src={foodURL} alt="Shoes" /></figure>

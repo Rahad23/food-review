@@ -1,17 +1,17 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ProviderContext } from './../../contextApi/ContextApi';
 import ReviewCard from './myReviewCard/ReviewCard';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useTitle from './../../titleChangeHook/UseTitleChange';
 
 const Myreview = () => {
     useTitle("My-Review");
-
+const navigate = useNavigate();
     const {userData} = useContext(ProviderContext);
     // console.log(userData);
-
+   
     const [feedBack, setFeedback] = useState([]);
-    
+    // console.log(feedBack);
     useEffect(()=>{
         if(userData?.email){
             fetch(`http://localhost:5000/userReview/${userData?.email}`,{
@@ -24,6 +24,9 @@ const Myreview = () => {
         }
          
     },[userData?.email])
+    if(!(userData?.email)){
+        return navigate('/login');
+    }
     return (
         <div className='mt-20 container mx-auto'>
             

@@ -10,14 +10,14 @@ const FoodDetails = () => {
     return (
         <div>
             <div className="card lg:card-side bg-base-100 shadow-xl mt-14 container mx-auto">
-            <figure><img src={foodURL} alt="Album"/></figure>
+            <figure><img className='w-56 lg:w-full' src={foodURL} alt="Album"/></figure>
             <div className="card-body">
                 <div className='indicator'>
                 <span className="indicator-item badge badge-secondary text-sm font-semibold text-black">Hot</span> 
                  <h2 className="card-title text-red-900">{foodNamed}</h2>
                 </div>
                 <h2 className='text-xl font-semibold'>$<span className='text-black'>{foodPrice}</span></h2>
-                <p className='w-96'>{foodDescription}</p>
+                <p className='lg:w-96 w-none'>{foodDescription}</p>
                 <div className="card-actions justify-end">
                 <button className="btn btn-primary">Order-Now</button>
                 </div>

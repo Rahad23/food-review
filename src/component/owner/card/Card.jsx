@@ -9,7 +9,7 @@ const Card = ({data}) => {
     // console.log(data)
     return (
         <div>
-            <div className="card w-80 bg-base-100 shadow-xl">
+            <div className="card mx-auto mb-8 w-72 lg:w-80 bg-base-100 shadow-xl">
   <figure className="">
     <img src={img} alt="Shoes" className="rounded-xl w-52" />
   </figure>

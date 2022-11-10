@@ -16,7 +16,7 @@ const AllCategoryPage = () => {
              <div>
                 <h1 className='text-5xl text-center mb-16 font-semibold'>All-Category</h1>
             </div>
-            <div className='grid grid-cols-3 gap-8'>
+            <div className='lg:grid lg:grid-cols-3 gap-8 flex flex-col'>
             {
                 food.map(fd=><FoodCard key={fd?._id} foods={fd}></FoodCard>)
             }

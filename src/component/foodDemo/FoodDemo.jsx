@@ -10,11 +10,11 @@ const FoodDemo = () => {
         .then(data=>setFood(data))
     },[])
     return (
-        <div className='grid grid-cols-3 mt-20 container mx-auto'>
+        <div className='lg:grid lg:grid-cols-3 mt-20 flex flex-col container mx-auto'>
             {
                 foods.map(food=><FoodCard key={food?._id} food={food}></FoodCard>)
             }
-           <div className='mt-3'>
+           <div className='mt-3 lg:text-left text-center'>
               <Link to={'/allFood'} className="text-slate-900 text-lg hover:text-gray-700 font-medium">See All</Link>
            </div>
         </div>

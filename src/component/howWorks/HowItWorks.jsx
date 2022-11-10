@@ -17,7 +17,7 @@ const HowItWorks = () => {
             <h1 className='text-5xl font-bold mb-3 mt-7'>How It Works</h1>
             <p className='w-1/2 mx-auto text-[#787878] font-semibold'>Food names in English! When learning English there are many reasons why you might need to know the names of different foods.</p>
             </div>
-           <div className='grid grid-cols-3 mt-16 mb-32'>
+           <div className='lg:grid lg:grid-cols-3 mt-16 mb-32 flex flex-col justify-center'>
            {
             work?.map(wrk=><Card key={wrk?._id} data={wrk}></Card>)
            }

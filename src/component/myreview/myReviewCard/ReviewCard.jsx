@@ -5,9 +5,10 @@ import { AiFillStar } from 'react-icons/ai';
 import { BsStarHalf } from 'react-icons/bs';
 import { IoMdArrowDropdown } from 'react-icons/io';
 import { toast } from 'react-toastify';
+// import Timestamp from 'react-timestamp';
 
 const ReviewCard = ({data}) => {
-    console.log(data);
+    // console.log(<Timestamp date={Date} options={{ includeDay: true, twentyFourHour: true }} />);
  const {foodName,foodPrice,foodUrl,message,rating,foodDescription,_id } =data;
  const messages = message.length > 100 ? message.slice(0,100)+"..." : message;
 

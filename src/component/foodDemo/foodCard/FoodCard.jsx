@@ -10,7 +10,7 @@ const FoodCard = ({food}) => {
     // console.log(food);
     return (
         <div>
-            <div className="card w-96 bg-base-100 shadow-xl">
+            <div className="card w-72 lg:w-96 mx-auto mb-8 bg-base-100 shadow-xl">
                 <PhotoProvider>
                     <PhotoView key={_id} src={foodURL}>
                       <figure><img src={foodURL} alt="Shoes" /></figure>

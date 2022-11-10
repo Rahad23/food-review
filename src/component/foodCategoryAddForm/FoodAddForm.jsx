@@ -41,7 +41,7 @@ useTitle("Add-Item");
     <div className="text-center lg:text-left">
       <h1 className="text-5xl font-bold mb-2"><i>Add New Item</i></h1>
     </div>
-    <div className="card flex-shrink-0 w-96 max-w-sm shadow-2xl bg-base-100">
+    <div className="card flex-shrink-0 w-80 lg:w-96 max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
         <form onSubmit={foodData}>
         <div className="form-control">

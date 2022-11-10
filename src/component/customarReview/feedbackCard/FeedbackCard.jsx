@@ -11,9 +11,9 @@ console.log(rating);
     // console.log(feedback)
     return (
         <div>
-            <div className="card w-full mb-7 bg-primary text-primary-content">
+            <div className="card mb-7 bg-primary text-primary-content">
         <div className="card-body">
-            <div className='grid card-grid-set'>
+            <div className='lg:grid card-grid-set flex flex-col'>
             <div className='text-left'>
                 <img className='w-12 rounded-2xl' src={imgUrl} alt="" />
                 <h2 className='mt-2 text-lg font-semibold text-slate-900'>Name: {name}</h2>
@@ -48,7 +48,7 @@ console.log(rating);
                 }
                 
             </div>
-           <div>
+           <div className='lg:mt-0 mt-8'>
             <h1 className='text-red-600 text-center mb-1 font-semibold'>{name} Comment</h1>
             <p className='text-center text-black text-lg font-semibold'>{messages.length >100 ?<div>{messages}<Link className='bg-green-500 p-1 cursor-pointer rounded-xl' to={`/readMore/${_id}`}>More</Link></div> : messages}</p>
             </div>
