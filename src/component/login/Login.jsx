@@ -36,7 +36,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
@@ -73,7 +73,7 @@ const Login = () => {
           email: user.email
         };
 
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/jwt', {
           method: "POST",
           headers: {
             'content-type': 'application/json',
@@ -85,9 +85,9 @@ const Login = () => {
             localStorage.setItem('key', data.token);
             // console.log(data)
           })
-          
-            
-          
+
+
+
         navigate('/');
         toast.success("Login success-full");
 
@@ -149,16 +149,16 @@ const Login = () => {
                 <div className="form-control mt-6">
                   <button onClick={signinPopupGoogle} className="btn bg-[#a55eea] border-none" type='submit'><BsGoogle className='text-3xl text-[#fff] mr-2'></BsGoogle> Login-with-Google</button>
                 </div>
-              
+
               </form>
             </div>
           </div>
         </div>
       </div>
     </div>
-    
+
   );
- 
+
 };
 
 export default Login;

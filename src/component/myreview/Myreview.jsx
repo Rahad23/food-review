@@ -15,7 +15,7 @@ const Myreview = () => {
     };
 
     if (userData?.email) {
-        fetch('http://localhost:5000/jwt', {
+        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/jwt', {
             method: "POST",
             headers: {
                 'content-type': 'application/json',
@@ -34,7 +34,7 @@ const Myreview = () => {
     // console.log(feedBack);
     useEffect(() => {
         if (userData?.email) {
-            fetch(`http://localhost:5000/userReview/${userData?.email}`, {
+            fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/userReview/${userData?.email}`, {
                 headers: {
                     authorization: `bearer ${localStorage.getItem('key')}`,
                 }

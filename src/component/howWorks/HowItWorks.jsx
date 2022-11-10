@@ -6,7 +6,7 @@ const HowItWorks = () => {
     const [work, setWork] = useState();
 
     useEffect(() => {
-        fetch('http://localhost:5000/howItwork')
+        fetch('https://cooking-server-nqhpguzxa-rahad23.vercel.app/howItwork')
             .then(res => res.json())
             .then(data => setWork(data))
     }, [])

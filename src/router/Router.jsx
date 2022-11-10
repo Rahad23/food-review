@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             {
                 path: '/foodDetails/:id',
                 element: <FoodDetails></FoodDetails>,
-                loader: async ({ params }) => fetch(`http://localhost:5000/food/${params.id}`)
+                loader: async ({ params }) => fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/food/${params.id}`)
             },
             {
                 path: '/register',
@@ -51,7 +51,7 @@ export const router = createBrowserRouter([
             {
                 path: '/editFeedback/:id',
                 element: <EditFeedBack></EditFeedBack>,
-                loader: async ({ params }) => fetch(`http://localhost:5000/commentUpdate/${params.id}`)
+                loader: async ({ params }) => fetch(`https://cooking-server-nqhpguzxa-rahad23.vercel.app/commentUpdate/${params.id}`)
             },
             {
                 path: '/service',
